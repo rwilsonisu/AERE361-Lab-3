@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void GaussAdder(int n); //Creates GaussAdder function as a function of n
+
+int main(int count, char *var[]) {
+  int n;
+  
+  if(count != 2) {
+    /*Checks that there are only two things in the command line
+      when prompted: the bash script call and the integer. If
+      the user does not type in a number, it terminates and
+      tells the user what they need to enter for it to work*/
+    
+    printf("What to input: %s <integer n>\n", var[0]);
+    return 1;    
+  } //end if
+
+  if(sscanf(var[1], "%d", &n) != 1 || n <= 0) {
+    /* Checks to make sure that the input provided is an integer
+       that is greater than or equal to 0*/
+    
+    printf("Error: invalid input.\n");
+    return 1;
+  } //end if
+  
+  printf("You entered n = %d\n", n);
+  GaussAdder(n); //Calls GaussAdder function for input n
+  return 0;
+
+} //end main
+
+void GaussAdder(int n) {
+  long long int sum = 0; //includes very very large integers
+
+  printf("GaussAdder has begun summing numbers from 1 to %d.\n", n);
+  for(int i = 1; i <= n; i++) { //Iterates i = i + 1 from i = 1 to n for all n's <= n
+    sum = (long long)n*(n + 1)/2; //Uses sum formula given for all valid values of n
+  }
+
+  printf("GaussAdder sum from 1 to %d is: %lld.\n", n, sum);
+  
+} //end GaussAdder

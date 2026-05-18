@@ -1,0 +1,109 @@
+\documentclass{article}
+
+% Adds the url command
+\usepackage{hyperref}
+% To remove paragraph indentation
+\usepackage{parskip}
+% Adds line cut to urls
+\usepackage{xurl}
+
+% Update these:
+\title{Lab 3 Report}
+\date{Due: 02/10/2026 @ 11:00 AM}
+\author{Ryan Wilson}
+\begin{document}
+\maketitle
+\newpage
+
+
+\section{Exercise 5:}
+\begin{itemize}
+\item \textbf{1. }\texttt{123 + 567 = 690}\\
+  Expected behavior: 123 plus 567 should be 690.\\
+  Compiler errors: The compiler reports no error, but the output is not correct.\\
+  Reason: The variable is set as an \texttt{unsigned char}, so which has a maximum upper storage limit of 255. The variable overflows due to this and outputs a different number.\\
+  Corrections: I would correct this by using a larger integer type such as \texttt{int} or \texttt{unsigned int}.\\
+  \\
+\item \textbf{2. }\texttt{1/10 = 0.1}\\
+  Expected behavior: 1/10 should be 0.1.\\
+  Compiler errors: Compiler says float is not able to be divided by an integer, so the result prints 0.\\
+  Reason: Float variables are not compatible in math equations with whole integers.\\
+  Corrections: I would change all \texttt{unsigned int} or \texttt{int} variables to that of \texttt{float} as well as change the \texttt{\%d} to a \texttt{\%f} in the \texttt{printf} prompt to display a float. This gets the final answer of 0.1.\\
+  \\
+\item \textbf{3. }\texttt{3.6 = 3.60000000000000000000}\\
+  Expected behavior: Printing 3.6 with 20 decimal places would give exactly one 6 and 19 zeros.\\
+  Compiler errors: No errors given by compiler, but the last 4 digits of the output are not zeros.\\
+  Reason: It does not show up as exactly \texttt{3.60000000000000000000} because floating-point numbers using binary cannot be accurately displayed to 20 digits.\\
+  Corrections: This is not a possible fix after speaking with TAs.\\
+\end{itemize}
+\newpage
+
+
+\section{Refernce sheet:}
+\begin{tabular}{|c|c|p{4.2in}|}
+\hline
+Command & Option & Description of output and interaction \\
+\hline
+\hline
+\texttt{gcc} & \texttt{-o} & \texttt{gcc} compiles the script and \texttt{-o} assigns it to an output file named after the option.\\
+\hline
+\texttt{isalpha()} & & Checks if a character is an alphabetic letter.\\
+\hline
+\texttt{scanf()} & & Reads a formatted input from the standard input \texttt{(stdin)}.\\
+\hline
+\texttt{sscanf()} & & Reads a formatted input from a string and stores it in a variable.\\
+\hline
+\texttt{time} & & Measures the execution time of a program.\\
+\hline
+\texttt{fgets()} & & Reads an entire line of an input including white spaces.\\
+\hline
+\texttt{printf()} & & Prints a formatted output.\\
+\hline
+\texttt{sizeof()} & & Returns the size (bytes) of a variable.\\
+\hline
+\texttt{getchar()} & & Reads a single character from an input. I used it to clear previous lines of an input.\\
+\hline
+\texttt{long long int} & & Gets rid of error for integer overflow, allowing for super large integer values to be used.\\
+\hline
+\texttt{i++} & & Post-increment command that tells the counter ``i'' to move to the next iteration by 1. Acts like i = i + 1.\\
+\hline
+\end{tabular}
+\newpage
+
+
+\section{Exercise 10:}
+\textbf{Performance: }\\
+When running each program from n = 1 to n = 100,000 to n = 1,000,000,000 I found that BruteForceAdder had a longer and longer runtime as n increased, but that GaussAdder's runtime did not change as significantly when running larger n values.\\\\
+\textbf{Description of Brute Force algorithm: }\\
+The brute force version of summation simply just adds all integers from 1 to n. For example, n = 5 would compute 1 + 2 + 3 + 4 + 5 and output 15. The Big-O for brute force's time complexity classification is $\mathcal{O}(n)$, meaning that the loop loops through each value of n once linearly.\\\\
+\textbf{Description of Gauss algorithm: }\\
+The Gauss version of summation computes the sum using a constant number of operations, being completely independent of the variable n. This means that the Big-O for Gauss' time complexity classification is $\mathcal{O}(1)$, making it \textit{significantly} faster at larger n values than the brute force method. Having an intelligent algorithm rather than a brute force one makes a substantial difference in decreasing processing time for very large values of n.\\\\
+
+\begin{center} \begin{tabular}{|c|r|r|}
+\hline
+$n$ & Brute Force Time & Gauss Adder Time \\
+\hline
+\hline
+1 & 0.002s & 0.002s\\ \hline
+10 & 0.002s & 0.002s\\ \hline
+100 & 0.002s & 0.002s\\ \hline
+1000 & 0.002s & 0.002s\\ \hline
+100000 & 0.002s & 0.002s\\ \hline
+\end{tabular} \end{center}
+\newpage
+
+
+Sources: \\
+\url{https://www.geeksforgeeks.org/c/c-for-loop/}\\
+\url{https://www.geeksforgeeks.org/c/c-program-to-find-sum-of-elements-in-a-given-array/}\\
+\url{https://www.geeksforgeeks.org/cpp/difference-between-long-int-and-long-long-int-in-c-cpp/}\\
+\url{https://www.geeksforgeeks.org/c/whats-difference-between-and/}\\
+\url{https://www.geeksforgeeks.org/c/tokens-in-c/}\\
+\url{https://www.geeksforgeeks.org/c/how-to-read-data-using-sscanf-in-c/}\\
+\url{https://www.geeksforgeeks.org/c/scanf-in-c/}\\
+\url{https://www.geeksforgeeks.org/c/scanfns-str-vs-getsstr-in-c-with-examples/}\\
+\url{https://www.geeksforgeeks.org/c/c-loops/}\\
+\url{https://www.geeksforgeeks.org/c/increment-and-decrement-operators-in-c/}\\
+\url{https://www.geeksforgeeks.org/dsa/analysis-algorithms-big-o-analysis/}\\
+
+\end{document}

@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void BruteForceAdder(int n); //Creates BruteForceAdder function as a function of n
+
+int main(int count, char *var[]) {
+  int n;
+  
+  if(count != 2) {
+    /*Checks that there are only two things in the command line
+      when prompted: the bash script call and the integer. If
+      the user does not type in a number, it terminates and
+      tells the user what they need to enter for it to work*/
+    
+    printf("What to input: %s <integer n>\n", var[0]);
+    return 1;    
+  } //end if
+
+  if(sscanf(var[1], "%d", &n) != 1 || n <= 0) {
+    /* Checks to make sure that the input provided is an integer
+       that is greater than or equal to 0*/
+    
+    printf("Error: invalid input.\n");
+    return 1;
+  } //end if
+  
+  printf("You entered n = %d\n", n);
+  BruteForceAdder(n); //Calls BruteForceAdder function for input n
+  return 0;
+
+} //end main
+
+void BruteForceAdder(int n) {
+  long long int sum = 0; //includes very very large integers
+
+  printf("BruteForceAdder has begun summing numbers from 1 to %d.\n", n);
+  for(int i = 1; i <= n; i++) { //Iterates i = i + 1 from i to n for all n's <= n
+    sum = sum + i; //Sums total sum to current i value
+  }
+
+  printf("BruteForceAdder sum from 1 to %d is: %lld.\n", n, sum);
+  
+} //end BruteForceAdder
